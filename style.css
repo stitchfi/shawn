@@ -1,0 +1,39 @@
+/* Shared styles for every page on Shawn's site */
+:root {
+  --bg: #f6f8ef;
+  --card: #ffffff;
+  --ink: #24301f;
+  --muted: #5f6b58;
+  --green: #3f8f3a;
+  --on-green: #ffffff;
+  --green-soft: #e3f0d6;
+  --line: #d5e2c4;
+  --shadow: 0 6px 20px rgba(40, 70, 30, .10);
+  --font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151a13; --card: #1f261c; --ink: #e8efe0; --muted: #a9b5a0;
+    --green: #7cc76f; --on-green: #12200f; --green-soft: #26331f; --line: #33412c;
+    --shadow: 0 6px 20px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font); font-size: 16px; line-height: 1.7;
+}
+img { max-width: 100%; }
+.wrap {
+  max-width: 920px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--green); }
+a:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+h2 { font-size: 26px; margin: 0 0 16px; text-wrap: balance; }
+.back { padding-block: 20px 0; font-size: 15px; }
+.back a { text-decoration: none; font-weight: 700; }
+.back a:hover { text-decoration: underline; }
+footer { text-align: center; color: var(--muted); padding-block: 8px 48px; font-size: 14px; }

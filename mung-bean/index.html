@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shawn的綠豆日記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  header { text-align: center; padding-block: 24px 32px; }
+  .sprout { width: 56px; height: 56px; display: block; margin: 0 auto; }
+  h1 { font-size: clamp(30px, 7vw, 50px); font-weight: 900; margin: 12px 0 4px; letter-spacing: .02em; text-wrap: balance; }
+  h1 span { color: var(--green); }
+  .sub { color: var(--muted); margin: 0; }
+  .en { display: block; font-size: .85em; }
+
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 8px 0 40px; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .fact b { display: block; font-size: 20px; color: var(--green); }
+  .fact small { color: var(--muted); }
+
+  .timeline { position: relative; padding-left: 28px; margin-bottom: 48px; display: grid; gap: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 4px; border-radius: 2px; background: var(--green-soft); }
+  .day { position: relative; min-width: 0; }
+  .day::before { content: ""; position: absolute; left: -26px; top: 18px; width: 16px; height: 16px; border-radius: 50%; background: var(--green); border: 3px solid var(--bg); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 16px 20px 0; }
+  .badge { background: var(--green); color: var(--on-green); font-weight: 700; border-radius: 999px; padding: 2px 12px; font-size: 15px; }
+  .date { color: var(--muted); font-size: 15px; }
+  .card h3 { width: 100%; margin: 6px 0 0; font-size: 21px; }
+  .photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; padding: 14px 20px 0; }
+  .photos button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 12px; }
+  .photos button:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+  .photos img { width: 100%; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; display: block; background: var(--green-soft); }
+  .card p { margin: 12px 20px 18px; max-width: 60ch; }
+
+  .learn { background: var(--green-soft); border-radius: 18px; padding: 20px 22px; margin-bottom: 48px; }
+  .learn ul { margin: 0; padding-left: 1.2em; }
+  .learn li { margin: 6px 0; }
+
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(0,0,0,.88); align-items: center; justify-content: center; z-index: 10; cursor: zoom-out; display: flex;
+    padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="back"><a href="../">← 回到 Shawn 的首頁</a></nav>
+
+  <header>
+    <svg class="sprout" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 58 V30" stroke="var(--green)" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M32 32 C20 32 12 24 10 12 C24 12 32 20 32 32 Z" fill="var(--green)"/>
+      <path d="M32 26 C40 24 48 16 52 6 C40 6 32 14 32 26 Z" fill="var(--green)" opacity=".75"/>
+      <ellipse cx="32" cy="58" rx="14" ry="4" fill="var(--line)"/>
+    </svg>
+    <h1>Shawn的<span>綠豆</span>發芽日記</h1>
+    <p class="sub">我把綠豆放在濕棉花上，每天觀察它怎麼長大！
+      <span class="en">Shawn's Mung Bean Sprouting Diary</span></p>
+  </header>
+
+  <section class="facts" aria-label="實驗資料">
+    <div class="fact"><b>6 顆</b><small>綠豆 Mung beans</small></div>
+    <div class="fact"><b>濕棉花</b><small>放在透明塑膠杯裡</small></div>
+    <div class="fact"><b>11月3日</b><small>開始實驗 Day 1</small></div>
+    <div class="fact"><b>7 天</b><small>從豆子長成小苗</small></div>
+  </section>
+
+  <h2>觀察紀錄</h2>
+  <div class="timeline">
+
+    <article class="day">
+      <div class="card">
+        <div class="card-head">
+          <span class="badge">第 2 天</span><span class="date">2026年11月4日</span>
+          <h3>長出小白根了！</h3>
+        </div>
+        <div class="photos">
+          <button type="button"><img src="photos/day2-a.jpg" alt="第2天：杯子裡的綠豆放在濕棉花上"></button>
+          <button type="button"><img src="photos/day2-b.jpg" alt="第2天近照：綠豆長出白色的小根"></button>
+        </div>
+        <p>綠豆喝了水變得胖胖的，有幾顆的豆皮裂開，鑽出一條白白的小根（叫做<b>胚根</b>）。小根會往下長，去找水喝。</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="card">
+        <div class="card-head">
+          <span class="badge">第 3 天</span><span class="date">2026年11月5日</span>
+          <h3>莖彎彎的冒出來</h3>
+        </div>
+        <div class="photos">
+          <button type="button"><img src="photos/day3.jpg" alt="第3天：綠豆長出彎彎的紫紅色莖" loading="lazy"></button>
+        </div>
+        <p>豆子的顏色變深了，還長出彎彎像小鉤子的莖，有一點紫紅色。其中一顆已經看得到淺綠色的芽，準備要站起來了！</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="card">
+        <div class="card-head">
+          <span class="badge">第 6 天</span><span class="date">2026年11月8日</span>
+          <h3>葉子打開了！</h3>
+        </div>
+        <div class="photos">
+          <button type="button"><img src="photos/day6.jpg" alt="第6天：綠豆苗長高，長出綠色葉子" loading="lazy"></button>
+        </div>
+        <p>綠豆苗長得好快！莖變得又高又細，已經超過杯子了，最上面打開了綠色的葉子。有些豆子長得比較慢，還是小小的。</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="card">
+        <div class="card-head">
+          <span class="badge">第 7 天</span><span class="date">2026年11月9日</span>
+          <h3>變成高高的小苗</h3>
+        </div>
+        <div class="photos">
+          <button type="button"><img src="photos/day7.jpg" alt="第7天：高高的綠豆苗從杯子裡長出來" loading="lazy"></button>
+        </div>
+        <p>只過了一個星期，小小的綠豆就變成高高的綠豆苗，長了好幾片葉子，還往旁邊彎過去，好像在找陽光。</p>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="learn">
+    <h2>我學到了什麼</h2>
+    <ul>
+      <li>綠豆只要有<b>水</b>、<b>空氣</b>和適合的<b>溫度</b>就能發芽，不一定要用泥土。</li>
+      <li>先長出來的是<b>根</b>，接著才是<b>莖</b>和<b>葉子</b>。</li>
+      <li>長出綠色葉子以後，植物就可以靠陽光自己製造養分。</li>
+      <li>每顆豆子長的速度都不一樣。</li>
+    </ul>
+  </section>
+
+  <footer>作者：Shawn · 2026年11月</footer>
+</div>
+
+<div class="lightbox" id="lb" role="dialog" aria-label="放大照片" hidden><img alt=""></div>
+<script>
+  const lb = document.getElementById('lb');
+  const lbImg = lb.querySelector('img');
+  document.querySelectorAll('.photos button').forEach(btn => {
+    const img = btn.querySelector('img');
+    btn.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt; lb.hidden = false; });
+  });
+  lb.addEventListener('click', () => { lb.hidden = true; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.hidden = true; });
+</script>
+</body>
+</html>
