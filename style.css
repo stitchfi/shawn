@@ -36,4 +36,19 @@ h2 { font-size: 26px; margin: 0 0 16px; text-wrap: balance; }
 .back { padding-block: 20px 0; font-size: 15px; }
 .back a { text-decoration: none; font-weight: 700; }
 .back a:hover { text-decoration: underline; }
+/* Read-aloud button (read-aloud.js) */
+.read-slot { margin-left: auto; display: inline-flex; }
+.read-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: 14px; font-weight: 700; line-height: 1;
+  color: var(--green); background: var(--card); border: 1.5px solid var(--green);
+  border-radius: 999px; padding: 7px 14px 7px 11px; cursor: pointer;
+}
+.read-btn:hover { background: var(--green-soft); }
+.read-btn:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+.reading .read-btn { background: var(--green); color: var(--on-green); }
+.reading { outline: 3px solid var(--green); outline-offset: 4px; }
+.heading-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 16px; }
+.heading-row h2 { margin: 0; }
+
 footer { text-align: center; color: var(--muted); padding-block: 8px 48px; font-size: 14px; }

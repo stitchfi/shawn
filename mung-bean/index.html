@@ -74,9 +74,10 @@
   <div class="timeline">
 
     <article class="day">
-      <div class="card">
+      <div class="card" data-read>
         <div class="card-head">
           <span class="badge">第 2 天</span><span class="date">2026年11月4日</span>
+          <span class="read-slot"></span>
           <h3>長出小白根了！</h3>
         </div>
         <div class="photos">
@@ -88,9 +89,10 @@
     </article>
 
     <article class="day">
-      <div class="card">
+      <div class="card" data-read>
         <div class="card-head">
           <span class="badge">第 3 天</span><span class="date">2026年11月5日</span>
+          <span class="read-slot"></span>
           <h3>莖彎彎的冒出來</h3>
         </div>
         <div class="photos">
@@ -101,9 +103,10 @@
     </article>
 
     <article class="day">
-      <div class="card">
+      <div class="card" data-read>
         <div class="card-head">
           <span class="badge">第 6 天</span><span class="date">2026年11月8日</span>
+          <span class="read-slot"></span>
           <h3>葉子打開了！</h3>
         </div>
         <div class="photos">
@@ -114,9 +117,10 @@
     </article>
 
     <article class="day">
-      <div class="card">
+      <div class="card" data-read>
         <div class="card-head">
           <span class="badge">第 7 天</span><span class="date">2026年11月9日</span>
+          <span class="read-slot"></span>
           <h3>變成高高的小苗</h3>
         </div>
         <div class="photos">
@@ -128,8 +132,8 @@
 
   </div>
 
-  <section class="learn">
-    <h2>我學到了什麼</h2>
+  <section class="learn" data-read>
+    <div class="heading-row"><h2>我學到了什麼</h2><span class="read-slot"></span></div>
     <ul>
       <li>綠豆只要有<b>水</b>、<b>空氣</b>和適合的<b>溫度</b>就能發芽，不一定要用泥土。</li>
       <li>先長出來的是<b>根</b>，接著才是<b>莖</b>和<b>葉子</b>。</li>
@@ -152,5 +156,6 @@
   lb.addEventListener('click', () => { lb.hidden = true; });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.hidden = true; });
 </script>
+<script src="../read-aloud.js"></script>
 </body>
 </html>

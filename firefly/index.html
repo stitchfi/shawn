@@ -78,9 +78,10 @@
 
   <h2>我怎麼做的</h2>
   <div class="steps">
-    <article class="step">
+    <article class="step" data-read>
       <div class="step-head">
         <span class="badge">第 1 次</span><span class="date">2026年10月30日</span>
+        <span class="read-slot"></span>
         <h3>塗黑盒子、畫螢火蟲</h3>
       </div>
       <ol>
@@ -88,9 +89,10 @@
         <li>把螢火蟲畫出來。</li>
       </ol>
     </article>
-    <article class="step">
+    <article class="step" data-read>
       <div class="step-head">
         <span class="badge">第 2 次</span><span class="date">2026年11月6日</span>
+        <span class="read-slot"></span>
         <h3>裝上燈，完成作品</h3>
       </div>
       <ol>
@@ -101,7 +103,8 @@
     </article>
   </div>
 
-  <h2>看仔細一點</h2>
+  <div data-read>
+  <div class="heading-row"><h2>看仔細一點</h2><span class="read-slot"></span></div>
   <section class="closeup">
     <img src="photos/closeup.jpg" alt="螢火蟲近照：剪下來的螢火蟲用線掛著，尾巴的燈亮起來" loading="lazy">
     <ul>
@@ -110,6 +113,7 @@
       <li>盒子裡還有<b>月亮</b>、<b>瀑布</b>和綠色的<b>草</b>。</li>
     </ul>
   </section>
+  </div>
 
   <footer>作者：Shawn · 2026年11月</footer>
 </div>
@@ -130,5 +134,6 @@
     cap.textContent = captions[key];
   }));
 </script>
+<script src="../read-aloud.js"></script>
 </body>
 </html>
