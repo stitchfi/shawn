@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shawn的羽毛球</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* Court page: green court colors with white court lines, mint accent from Shawn's racket */
+  :root {
+    --court: #1f6b4f;
+    --court-line: #ffffff;
+    --mint: #8fd8c8;
+    --mint-ink: #0f3d33;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --court: #164d39; --court-line: #e9f2ec; --mint: #7ccab9; --mint-ink: #0b2c25; }
+  }
+
+  .hero {
+    position: relative; margin: 16px 0 36px; border-radius: 20px; overflow: hidden;
+    background: var(--court); color: var(--court-line); box-shadow: var(--shadow);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: stretch;
+  }
+  .hero-text { padding: 28px 24px; display: grid; align-content: center; gap: 6px; position: relative; }
+  /* court lines */
+  .hero-text::before {
+    content: ""; position: absolute; inset: 14px; border: 3px solid rgba(255,255,255,.35); border-radius: 6px; pointer-events: none;
+  }
+  .hero-text::after {
+    content: ""; position: absolute; left: 14px; right: 14px; top: 50%; border-top: 3px solid rgba(255,255,255,.35); pointer-events: none;
+  }
+  .hero h1 { font-size: clamp(30px, 7vw, 48px); font-weight: 900; margin: 0; letter-spacing: .02em; text-wrap: balance; position: relative; }
+  .hero h1 span { color: var(--mint); }
+  .hero p { margin: 0; opacity: .9; position: relative; }
+  .hero img { width: 100%; height: 100%; min-height: 220px; max-width: 100%; object-fit: cover; display: block; }
+
+  .block { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; margin-bottom: 24px; }
+  .block p { margin: 0; max-width: 60ch; }
+
+  .progress { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 14px 0 0; }
+  .stage { border-radius: 14px; padding: 14px 16px; border: 1px solid var(--line); display: grid; gap: 8px; }
+  .stage b { font-size: 15px; color: var(--muted); }
+  .stage .say { font-size: 18px; font-weight: 700; }
+  .stage.now { background: var(--green-soft); border-color: var(--green); }
+  .stage.now b { color: var(--green); }
+  .hits { display: flex; gap: 6px; flex-wrap: wrap; }
+  .hit { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--green); }
+  .hit.yes { background: var(--green); }
+
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; align-items: start; margin-bottom: 24px; }
+  .two .block { margin-bottom: 0; }
+  .photo { width: 100%; max-width: 100%; border-radius: 18px; display: block; box-shadow: var(--shadow); }
+
+  .love { background: var(--mint); color: var(--mint-ink); border: 0; }
+  .love .read-btn { background: transparent; color: var(--mint-ink); border-color: var(--mint-ink); }
+  .love.reading { outline-color: var(--mint-ink); }
+  .love .big { font-size: clamp(22px, 5vw, 28px); font-weight: 900; margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="back"><a href="../">← 回到 Shawn 的作品集</a></nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Shawn的<span>羽毛球</span></h1>
+      <p>我在學打羽毛球，而且越打越好！</p>
+      <p lang="en" style="font-size:.85em">Shawn's Badminton</p>
+    </div>
+    <img src="photos/racket.jpg" alt="Shawn 的小朋友羽毛球拍，薄荷綠色，放在綠色的球場上，旁邊有一顆羽毛球">
+  </section>
+
+  <section class="block" data-read>
+    <div class="heading-row"><h2>換了新球拍</h2><span class="read-slot"></span></div>
+    <p>我原本用的羽毛球拍是大人用的，後來換成小朋友的羽毛球拍。上面照片裡薄荷綠色的，就是我現在用的球拍。</p>
+  </section>
+
+  <section class="block" data-read>
+    <div class="heading-row"><h2>我進步了</h2><span class="read-slot"></span></div>
+    <div class="progress">
+      <div class="stage">
+        <b>第一次打的時候</b>
+        <div class="hits" aria-hidden="true">
+          <span class="hit yes"></span><span class="hit"></span><span class="hit yes"></span><span class="hit"></span><span class="hit"></span><span class="hit yes"></span>
+        </div>
+        <div class="say">沒有每次都打得到。</div>
+      </div>
+      <div class="stage now">
+        <b>現在</b>
+        <div class="hits" aria-hidden="true">
+          <span class="hit yes"></span><span class="hit yes"></span><span class="hit yes"></span><span class="hit yes"></span><span class="hit yes"></span><span class="hit yes"></span>
+        </div>
+        <div class="say">每一次打，差不多都打得到了！</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="two">
+    <img class="photo" src="photos/shuttlecocks.jpg" alt="球場上排成一排一排的羽毛球" loading="lazy">
+    <section class="block" data-read>
+      <div class="heading-row"><h2>教練的獎勵</h2><span class="read-slot"></span></div>
+      <p>如果我打得很好，我的羽毛球教練就會送我飲料或是其他東西。</p>
+    </section>
+  </div>
+
+  <section class="block love" data-read>
+    <div class="heading-row"><h2>為什麼我喜歡羽毛球</h2><span class="read-slot"></span></div>
+    <p class="big">我很喜歡練羽毛球，因為我覺得它很好玩！</p>
+  </section>
+
+  <footer>作者：Shawn · 2026年11月</footer>
+</div>
+<script src="../read-aloud.js"></script>
+</body>
+</html>
